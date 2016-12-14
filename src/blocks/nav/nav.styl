@@ -1,0 +1,131 @@
+.nav
+    background-color: $color-main
+    height 60px
+
+    &__items
+        margin-left 40px
+        display: flex
+        float: left
+
+    &__item-link
+        display: inline-block;
+        text-decoration: none;
+        color: #fff
+        line-height: 60px
+        padding 0 20px
+        background-color: rgba($color-main, 0)
+        &:hover
+            background-color: $color-main-hover
+            color #fff
+
+    &__button
+        float: right
+        margin-top 10px
+
+.nav-cat
+    float: left
+    position: relative
+    min-width: 260px
+    &__title
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        color: #fff
+        font-size: 16px
+        line-height: 60px
+        padding 0 20px
+        background-color: $color-main-dark
+        width 100%
+        arrow(right: 20px, bg: #fff, direction: "down")
+        &:hover
+            color #fff
+
+    &__list-second
+        background-color: #fff
+        box-shadow: 0px 0px 20px 0px rgba(#000, 0.2);
+        position: absolute;
+        z-index: 10;
+        left 100%
+        top 0
+        display: none
+        &:before
+            content ''
+            position: absolute
+            width 10px
+            height @width
+            top 20px
+            left 0
+            transform translateX(-50%) rotate(45deg)
+            background: #fff
+            box-shadow: -2px 2px 7px 0 rgba(#000,0.1);
+            z-index: 1
+        &:after
+            content ''
+            position: absolute
+            width 20px
+            height @width
+            top 16px
+            left 0
+            background: #fff
+            z-index: 2
+
+    &__list-second-container
+        display: flex
+
+
+    &__list-second-col
+        width (940/4)px
+        padding 50px 60px
+
+    &__list-second-item-link
+        text-decoration: none
+        color $base-fc
+        &:hover
+            color $color-main-hover
+
+    &__list-second-item:not(:last-child)
+        margin-bottom: 20px
+
+
+    &__list
+        width 100%
+        position: absolute
+        top 100%
+        z-index: 10
+        display: none
+
+    &__list-item-link
+        display: inline-block
+        width: 100%
+        line-height: 49px
+        padding 0 30px 0 20px
+        background-color: #fff
+        border 1px solid  $color-border
+        border-top none
+        color $base-fc
+        text-decoration: none
+
+    &__list-item
+        position: relative
+        arrow(right: 20px, direction: "right")
+        &:hover
+            & ^[0]__list-item-link
+                color $color-main-hover
+
+            arrow(right: 20px, bg: $color-main-hover, direction: "right")
+
+            & ^[0]__list-second
+                display block
+
+        &.active
+            & ^[0]__list-item-link
+                color $color-main
+                padding: 0 30px 0 40px
+            arrow(left: 24px, bg: $color-main, direction: "right")
+.nav-cat
+    &.open
+        & ^[0]__list
+            display block
+    &.close
+        & ^[0]__list
+            display none

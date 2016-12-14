@@ -1,0 +1,49 @@
+mixin catalog(dataExternal, amount, mod)
+    .catalog
+        -
+            var mod = mod || ''
+            var amount = amount || 1
+            var titles = [
+                'Люстры','Торшеры', 'Бра', 'Настольные лампы','Подвесы','Светодиодные прожекторы','Уличное освещение','Светодиодные прожекторы'
+            ]
+            var inners = [
+                'Хрустальные','Классика','Модерн','Рустика','Для детской','Флористика','Круглые','Квадратные','Длинные','Декаротивные','Детские','Прямоугольные','Флористика','Круглые','Хрустальные','Классика','Модерн','Кованые','Тиффани', 'Хай-тек', 'Накладные'
+            ]
+
+            function randomDigit(min,max){
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+
+        - var n = 1
+        while (n <= amount)
+            -
+                var randomImg = './assets/images/item-'+ randomDigit(1,5) +'.png'
+                var randomTitle = titles[randomDigit(0,titles.length-1)]
+                var amountList  = randomDigit(2,inners.length-5)
+
+                var data = dataExternal || {
+                        img : randomImg,
+                        name : randomTitle
+                    }
+
+            .catalog__item.js-catalog-item(class=mod)
+                .catalog__item-container
+
+                    .catalog__item-content
+                        .catalog__item-wrap-img
+                            a(href="#").catalog__item-img-link
+                                img.catalog__item-img(src=data.img)
+
+                        a(href="#").catalog__item-name!= data.name
+
+                        .catalog__item-list.js-limit-list(data-max-items="4")
+                            - var l = 1
+                            while (l <= amountList)
+                                - var listItem = inners[randomDigit(0,inners.length-1)]
+                                .catalog__item-list-row
+                                    a(href="#").catalog__item-list-row-link!=listItem
+
+                                - l++
+
+            - n++

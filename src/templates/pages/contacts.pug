@@ -1,0 +1,57 @@
+extend ../layouts/maps
+
+block content
+
+	mixin contact-info(data)
+		- var data = data || {}
+		.contact__info-title!= data.title
+		.contact__info-text!= data.desc
+		if (data.phone)
+			.contact__info-phone!= data.phone
+	-
+		var info = [
+			{
+				title : 'Адрес',
+				desc : 'г. Екатеринбург, <br>ул.&nbsp;Примерная, д.&nbsp;40, оф.&nbsp;120',
+				phone : '<span class="contact__info-phone-prefix">+7 (495)</span> 55-55-55'
+			},
+			{
+				title : 'Время работы',
+				desc : 'Пн-Пт: с 9-00 до 21-00<br>Сб-Вс: с 11-00 до 19-00'
+			},
+			{
+				title : 'Как добраться:',
+				desc : 'На автобусе: 1, 201, 320<br>На маршрутке: 001, 049, 323<br>Метро: ст. Геологическая'
+			}
+		]
+
+	section.section.section_first
+		+breadcrumbs({
+			items: ["Контакты"]
+		})
+
+		.section__title-wrap.section__title-wrap_page
+			h1.section__title Контакты
+
+		.contact
+			.contact__map-wrap
+				.contact__map-desc-wrap
+					+contact-info(info[0])
+
+				.contact__map-shadow
+				.contact__map
+					.map.js-map(data-center="город Екатеринбург, Малышева 51", data-zoom="17")
+
+			.container
+				.contact__block-desc
+
+					each item, i in info
+						.contact__block-desc-item
+							+contact-info(item)
+
+
+
+
+
+
+block popup

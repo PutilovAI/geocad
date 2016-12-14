@@ -1,0 +1,57 @@
+mixin shop(dataExternal, amount, mod)
+    -
+        var mod = mod || ''
+        var amount = amount || 1
+        var names = [
+            'Tommaso Caldera 60W','Caldera 160W', 'Tom 220W', 'Caldera 160W','Tom Cal 80W'
+        ]
+        var types = [
+            'Светильник','Ночник','Торшер','Бра','Подвес'
+        ]
+        var prices = [
+            '5 000', '900', '2 300', '1 200', '700'
+        ]
+
+        function randomDigit(min,max){
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+
+    - var n = 1
+    while (n <= amount)
+        -
+            var random = randomDigit(0,4)
+
+            var data = dataExternal || {
+                    img : './assets/images/item-'+(randomDigit(0,4)+1) +'.png',
+                    type : types[randomDigit(0,4)],
+                    name : names[randomDigit(0,4)],
+                    price : prices[randomDigit(0,4)],
+                    sale : (random == 3) ? '-30%' : ''
+                }
+
+
+
+        .shop(class=mod)
+            .shop__container
+                if (data.title)
+                    .shop__title!= data.title
+                .shop__content
+                    if (data.sale)
+                        .shop__sale!= data.sale
+                    a(href="#").shop__wrap-img
+                        img.shop__img(src=data.img)
+                    .shop__wrap-desc
+                        .shop__type!= data.type
+                        .shop__name!= data.name
+                        .shop__price-wrap
+                            if (data.priceOld)
+                                .shop__price.shop__price_old
+                                    |#{data.priceOld} #[span.shop__price-rubl Р]
+                            .shop__price
+                                |#{data.price} #[span.shop__price-rubl Р]
+                    .shop__wrap-button
+                        .shop__button.button В корзину
+                        if (mod != 'shop_hot')
+                            .shop__button.shop__button_one-click.button.button_nobg Купить в 1 клик
+        - n++

@@ -1,0 +1,57 @@
+.popup
+    width 100%
+    margin 50px auto
+    position: relative
+    max-width: 480px
+    background-color: #fff
+    &_mid
+        max-width: 680px
+
+    &__title-block
+        text-align: center
+        position: relative
+        padding 30px 90px
+        font-family: $base-ff
+        border-bottom 1px solid $color-border
+        &:after
+            content ''
+            position: absolute;
+            bottom -2px
+            width 100%
+            max-width: 180px
+            height 2px
+            pos-center-w()
+            background-color $color-main
+            z-index: 2
+
+    &__title-text
+        font-size: $fsH4
+
+    &__content
+        padding 30px 90px
+        & *:last-child
+            margin-bottom 0
+
+    &__close
+        position: absolute
+        width 60px
+        height @width
+        background-color $color-main
+        bottom 100%
+        left 100%
+        z-index: 1
+        cursor pointer
+        &:hover
+            background-color $color-main-hover
+        &:after, &:before
+            content ''
+            position: absolute
+            top 50%
+            left 50%
+            width 24px
+            height 1px
+            background: #fff
+        &:after
+            transform translate(-50%, -50%) rotate(45deg)
+        &:before
+            transform translate(-50%, -50%) rotate(-45deg)

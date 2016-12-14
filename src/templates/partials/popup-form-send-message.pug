@@ -1,0 +1,8 @@
+.popup.popup_form#popup-send-message
+    .popup__close.js-popup__close
+
+    .popup__title-block
+        .popup__title-text Напишите нам
+
+    .popup__content
+        +form({inputs: ['name', 'email','extra'], name: 'send-message'})

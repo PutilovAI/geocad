@@ -1,0 +1,44 @@
+.breadcrumbs
+    text-align: center;
+    line-height: 59px
+    height 60px
+    border-bottom 1px solid rgba(#fff, 0.1)
+    &__link
+        color #fff
+        text-decoration: none
+        border-bottom: 1px solid $color-main
+        transition all 0.2s
+
+        &:hover
+            color $color-main
+            text-decoration: none
+
+    &__item
+        display inline-block
+        margin-right 0
+        position: relative
+        font-size: 12px
+        font-family: $base-ff-bold
+        text-transform: uppercase;
+        &:after
+            content ''
+            background url(../images/breadcrumbs-arrow.png) no-repeat
+            imgSize('assets/breadcrumbs-arrow.png')
+            color $color-main
+            margin 0 10px
+            position: relative;
+            display: inline-block;
+            top -2px
+
+        &:last-child
+            margin-right 0
+            &:after
+                display: none
+
+        &.active
+            & ^[0]__link
+                border-color transparent
+                &:hover
+                    border-color transparent
+                    color #fff
+                    cursor: default

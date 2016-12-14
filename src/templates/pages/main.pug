@@ -1,0 +1,35 @@
+extend ../layouts/main
+
+block content
+
+	section.section.section_first.h-pb_20
+		.container
+			.intro
+				img.intro__img(src="./assets/images/bg-main.png")
+				.intro__content
+					.intro__minititle Новая коллекция
+					.intro__title Luce
+					a.intro__button(href="#").button.button_link Подробнее
+
+			.row
+				.section__sidebar
+					+shop({
+					title: 'Цена дня',
+					sale: '-30%',
+					img: './assets/images/item-price-day.png',
+					type: 'Светильник',
+					name: 'Tommaso Caldera 60W',
+					price: '5 000',
+					priceOld: '8 000'
+					}, 1, 'shop_hot')
+
+				.section__content.section__content_catalog
+					include ../partials/skill
+					.section__title-wrap.section__title-wrap_semi
+						div.section__title Популярные товары
+
+					include ../partials/carousel
+
+	include ../partials/section-intresting
+
+block popup

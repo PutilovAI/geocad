@@ -1,0 +1,21 @@
+.skill
+    cf()
+
+    &__item
+        padding 25px 50px
+        column(1/3, gutter: 0)
+        border 1px solid $color-border
+    &__item:not(:last-child)
+        border-right none
+
+    &__item-icon-wrap
+        display: table-cell;
+        width 60px
+        vertical-align: top;
+        padding-right: 15px
+
+    &__item-desc
+        color #222
+        line-height: 1.5
+        display: table-cell;
+        vertical-align: top;

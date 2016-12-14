@@ -1,0 +1,40 @@
+extend ../layouts/nocatalog
+
+block content
+
+	section.section.section_first.h-pb_20
+		.container
+			-
+				var popups = [
+					{
+						name : 'Напишите нам',
+						id : 'popup-send-message'
+					},
+					{
+						name : 'Спасибо',
+						id : 'popup-message-succes'
+					},
+					{
+						name : 'Заказать обратный звонок',
+						id : 'popup-callback'
+					},
+					{
+						name : 'Купить в один клик',
+						id : 'popup-one-click'
+					},
+					{
+						name : 'Добавить в корзину',
+						id : 'popup-basket'
+					}
+				]
+			ul.list
+				each item in popups
+					li
+						a.js-popup-open(href="#"+item.id)!= item.name
+
+block popup
+	include ../partials/popup-form-send-message
+	include ../partials/popup-message-succes
+	include ../partials/popup-form-callback
+	include ../partials/popup-one-click
+	include ../partials/popup-basket

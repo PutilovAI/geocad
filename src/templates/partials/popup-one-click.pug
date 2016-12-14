@@ -1,0 +1,23 @@
+.popup.popup_form#popup-one-click
+    .popup__close.js-popup__close
+
+    .popup__title-block
+        .popup__title-text Купить в один клик
+
+    .popup__content
+
+        .basket__item.basket__item_one-click
+
+            .basket__item-cell
+                a(href="#").basket__item-img-wrap
+                    img.basket__item-img(src='./assets/images/item-2.png')
+
+            .basket__item-cell
+                .basket__item-label Светильник
+                .basket__item-name Caldera 160W
+
+            .basket__item-cell
+                .basket__item-price
+                    |1200#[span.basket__item-price-rubl Р]
+
+        +form({inputs: ['name', 'phone','letter'], name: 'one-click', buttonText: 'Оформить заказ'})

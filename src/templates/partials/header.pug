@@ -1,0 +1,23 @@
+header.header
+    .container
+        .header__container
+            .header__item
+                include logo
+            .header__item
+                .phone
+                    i.phone__icon.i-phone
+                    .phone__number
+                        | #[span.phone__number-prefix 8 343] #[span.phone__number-main 202-04-90]
+
+                .time-work
+                    |Часы работы#[br]с 9:00 до 20:00
+
+
+            .header__item
+                include button-callback
+
+            .header__item
+                a.button.button_icon.button-basket
+                    .button-basket__count 10
+                    span.button-basket__price 20 000
+                    span.button-basket__rubl Р

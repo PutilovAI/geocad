@@ -1,0 +1,61 @@
+mixin basket-item(dataExternal, amount, mod)
+    -
+        var mod = mod || ''
+        var amount = amount || 1
+        var names = [
+            'Tommaso Caldera 60W','Caldera Absolut presijion-aurveda 160W', 'Tom 220W', 'Caldera 160W','Tom Cal 80W'
+        ]
+        var types = [
+            'Светильник','Ночник','Торшер','Бра','Подвес'
+        ]
+        var prices = [
+            '5 000', '900', '2 300', '1 200', '700'
+        ]
+
+        function randomDigit(min,max){
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+
+    - var n = 1
+    while (n <= amount)
+        -
+            var random = randomDigit(0,4)
+            var randomAmount = randomDigit(1,20)
+
+            var data = dataExternal || {
+                    img : './assets/images/item-'+(randomDigit(0,4)+1) +'.png',
+                    type : types[randomDigit(0,4)],
+                    name : names[randomDigit(0,4)],
+                    price : prices[randomDigit(0,4)],
+                    sale : (random == 3) ? '-30%' : ''
+                }
+
+            data.totalPrice = parseInt(data.price.replace(/\s/g, ''))*randomAmount;
+
+
+        .basket__item
+
+            .basket__item-cell
+                a(href="#").basket__item-img-wrap
+                    img.basket__item-img(src=data.img)
+
+            .basket__item-cell
+                .basket__item-label!= data.type
+                .basket__item-name!= data.name
+
+            .basket__item-cell
+                .basket__item-price
+                    |#{data.price}#[span.basket__item-price-rubl Р]
+
+            .basket__item-cell
+                +amount({'value': randomAmount})
+
+            .basket__item-cell
+                .basket__item-price
+                    |#{data.totalPrice}#[span.basket__item-price-rubl Р]
+                    
+            .basket__item-cell.basket__item-cell_delete
+                .basket__item-delete
+
+        - n++

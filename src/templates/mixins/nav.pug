@@ -1,0 +1,9 @@
+mixin nav(open)
+    nav.nav
+        .container
+            .nav__items
+                each item in ['Доставка и оплата', 'Гарантия и возврат', 'Контакты']
+                    .nav__item
+                        a(href="#").nav__item-link= item
+            .nav__button
+                a.button.button_icon.button_write Напишите нам

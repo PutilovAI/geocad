@@ -1,0 +1,38 @@
+.popup.popup_mid#popup-basket
+    .popup__close.js-popup__close
+
+    .popup__title-block
+        .popup__title-text Товар добавлен в корзину
+
+    .popup__content
+        .basket-popup
+            .basket-popup__item
+
+                a(href="#").basket-popup__item-img-wrap
+                    img.basket-popup__item-img(src='./assets/images/item-3.png')
+
+
+
+                .basket-popup__info
+                    .basket-popup__info-row
+                        .basket-popup__info-cell
+                            .basket-popup__item-label Светильник
+                            .basket-popup__item-name Caldera 160W
+                        .basket-popup__info-cell.basket-popup__info-cell_price
+                            .basket-popup__item-label Стоимость:
+                            .basket-popup__item-price
+                                |1200#[span.basket-popup__item-price-rubl Р]
+                            .basket-popup__item-cell-row
+
+                    .basket-popup__info-row
+                        .basket-popup__info-cell
+                            +amount({value: 10, max: 20})
+                        .basket-popup__info-cell.basket-popup__info-cell_price
+                            .basket-popup__item-label Итого:
+                            .basket-popup__item-price
+                                |10200#[span.basket-popup__item-price-rubl Р]
+                            .basket-popup__item-cell-row
+
+            .basket-popup__buttons
+                .basket-popup__button.button.button_nobg Продолжить покупки
+                .basket-popup__button.button.button_nobg Оформить заказ

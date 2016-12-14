@@ -1,0 +1,139 @@
+.input
+    position: relative
+    &__text,
+    &__textarea
+        font-size: $base-fs
+        padding 0.8em 1em
+        background-color $input-bg
+        border 1px solid $input-border
+        outline none
+        border-radius 0
+        color $input-color
+        transition all 0.2s linear
+        width: 100%
+
+        +placeholder()
+            color lighten($color-grey, 20%)
+        &:hover
+            border-color $input-border-hover
+
+        &:focus
+            outline none
+            border-color $input-border-focus
+
+    &__textarea
+        resize none
+        height 140px
+
+    &__label
+        font-size: $base-fs
+        margin-bottom 8px
+        display: block;
+
+
+    &__checkbox
+        position absolute
+        opacity 0.01
+        width 1px
+        height 1px
+        left -6000px
+
+    &__checkbox
+        &+^[0]__label
+            position relative
+            display inline-block
+            cursor pointer
+            padding-left: 40px
+            line-height: 1.2
+            user-select none
+            &:before
+                content ''
+                display: inline-block
+                vertical-align: middle
+                margin-right: 20px
+                margin-left: -40px
+                background #fff
+                width 20px
+                height @width
+                text-align: center
+                line-height: 20px
+                border 2px solid #d1d1d1
+                transition all 0.3s linear
+            &:after
+                content ''
+                position: absolute
+                width 6px
+                height @width
+                background: #fff
+                top 7px
+                left 7px
+            &:hover
+                &:before
+                    border-color: $color-main-hover
+
+    &__checkbox:checked
+        &+^[0]__label
+            &:before
+                border-color: $color-main
+            &:after
+                background-color: $color-main
+
+
+
+    &__error
+        display: block
+        visibility: hidden;
+        position: absolute
+        bottom 1px
+        left 100%
+        color: #fff
+        background-color: $input-error
+        padding 0.8em 1em
+        border 1px solid $input-error
+        white-space: nowrap;
+        margin-left 10px
+        opacity: 0
+        transform translateX(-100px)
+        transition all 0.4s ease-in-out
+        &:before
+            content ''
+            position: absolute
+            width 8px
+            height @width
+            background-color: $input-error
+            top 50%
+            left 0
+            transform translate(-66%, -50%) rotate(45deg)
+
+        &_rel
+            bottom 0
+            position: relative
+            margin-top 10px
+
+
+    //Status input wrapper
+    // &.succes
+    //     & ^[0]__text
+    //         border-color $input-border
+    //         &:hover
+    //             border-color $input-border
+
+    &.error
+        & ^[0]__text
+            border-color rgba($input-border-error, 0.8)
+            background-color: #ffd3d5
+            color $input-error
+            &:hover
+                color $input-error
+                background-color: #ffd3d5
+                border-color  rgba($input-border-error, 0.9)
+
+            &:focus
+                color $input-error
+                border-color rgba($input-border-error, 1)
+                background-color: #ffd3d5
+
+        & ^[0]__error
+            visibility: visible;
+            opacity: 1
+            transform translateX(0)

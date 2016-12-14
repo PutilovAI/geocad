@@ -1,0 +1,116 @@
+.shop
+    text-align: center
+    background-color: #fff
+
+    &__container
+        padding 30px 30px 35px
+
+    &__content
+        position: relative
+        padding-top 15px
+
+    &__title
+        font-size: 16px
+        margin-bottom: 25px
+
+    &__sale
+        background-color: $color-main
+        color #fff
+        font-size: 14px
+        font-family: $base-ff-bold
+        padding: 0.5em 1.5em
+        border-radius: 2em
+        position: absolute
+        top 0
+        left 0
+        z-index: 1
+
+    &__img
+        max-width: 100%
+        display: inline-block;
+
+    &__wrap-img
+        margin-bottom: 25px
+        min-height: 140px;
+        display: block
+
+    &__wrap-desc
+        line-height: 1.5
+
+    &__wrap-button
+        position: absolute;
+        bottom 0
+        opacity: 0
+        background: #fff
+        transition all 0.3s ease-in-out
+
+    &__type
+        font-size: 14px
+        color $color-grey
+    &__name
+        font-size: 14px
+        margin-bottom: 5px
+
+    &__price
+        display: inline-block;
+        color $color-main
+        font-size: 18px
+        font-family: $base-ff-semibold
+    &__price-rubl
+        font-size: 14px
+        color: $base-fc
+
+    &__price_old
+        color #888
+        margin-right: 10px
+        position: relative;
+        &:after
+            content ''
+            height 1px
+            width 100%
+            background-color: #888
+            position: absolute;
+            top 50%
+            left 0
+        & ^[0]__price-rubl
+            color #888
+    &__button:not(:last-child)
+        margin-bottom: 10px
+
+    &:hover
+        & ^[0]__wrap-button
+            opacity: 1
+
+.shop
+    &_hot
+        border 2px solid $color-main
+
+        & ^[0]__wrap-button
+            margin-top 25px
+            position: relative;
+            opacity: 1;
+            bottom auto
+
+.shop-intresting
+    display: flex
+    &__item
+        background-color: #fff
+        width (100/6)%
+        border 1px solid $color-border
+        border-width 1px 1px 0 0
+        &:last-child
+            border-right-width 0
+
+.shop-section
+    display: flex
+    flex-wrap: wrap;
+    &__item
+        text-align: center
+        background-color: #fff
+        width (100/3)%
+        border 1px solid $color-border
+        border-width 0 0 1px 1px
+        &:nth-child(-n+3)
+            border-top-width 1px
+        &:nth-child(3n), &:last-child
+            border-right-width 1px

@@ -1,0 +1,30 @@
+mixin input(data, mod, attr)
+    -
+        var data = data || {}
+        var mod = mod || ''
+        var attr = attr || {}
+        var modInput = 'input__text'
+        var type = data.type || 'text'
+        var placeholder = data.placeholder || ''
+        var inputTag = data.tag || "input"
+        var error = data.error || 'Заполните поле'
+        var id = data.id || ''
+
+        if (data.required){
+            mod = mod + ' js-valid-form__item'
+        }
+
+        if (type === 'phone'){
+            modInput = 'input__text js-mask-phone'
+            placeholder = data.placeholder || '+7 (___) ___-__-__'
+        }
+
+        if (type === 'textarea'){
+            modInput = 'input__textarea'
+            inputTag = 'textarea'
+        }
+    .input(class=mod)
+        label.input__label(for=id)!= data.label
+        #{inputTag}(type=type, class=modInput, id=id, placeholder=placeholder)
+        if (data.required)
+            .input__error.js-valid-form__error!= error

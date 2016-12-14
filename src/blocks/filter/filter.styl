@@ -1,0 +1,118 @@
+.filter
+    width 100%
+    margin-top: -60px
+    position: relative;
+    z-index: 1
+    border 1px solid $color-main
+    &__header
+        height 60px
+        line-height: 60px
+        color #fff
+        background-color: $color-main
+        padding 0 20px
+
+
+    &__panel
+        padding 25px 20px
+        border-top 1px solid $color-border
+        &_buttons, &:first-of-type
+            border-top none
+        &_buttons
+            padding-top 0
+            padding-bottom 20px
+
+    &__panel-content
+        margin-top: 25px
+        display none
+
+    &__label
+        display: inline-block;
+        line-height: 1.2
+        padding-right 20px
+        position: relative;
+        cursor: pointer;
+        transition: all 0.3s
+        arrow(right: 0, direction: 'down')
+        &:after, &:before
+            transition: all 0.3s
+        &:hover
+            color $color-main-hover
+            &:after, &:before
+                background-color: lighten($color-main-hover, 25%)
+
+    &__button
+        margin-top 10px
+        width 100%
+        &:first-child
+            margin-top: 0
+
+    &__list-item
+        margin-bottom: 2px
+    &__range
+        margin 0 8px
+        cursor: pointer;
+
+    &__range-row
+        &_input
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px
+
+    &__input-wrap
+        position: relative;
+        width 47%
+
+    &__input-label
+        color #888
+        position: absolute;
+        pos-center-h()
+        left 10px
+
+    &__input
+        width 100%
+        font-size: 14px
+        padding 0.6em 0.6em 0.5em
+        padding-left: 2em
+        background-color $input-bg
+        border 1px solid $input-border
+        outline none
+        color $input-color
+        transition all 0.3s linear
+
+        &:hover
+            border-color $input-border-hover
+
+        &:focus
+            outline none
+            border-color $input-border-focus
+
+    & .ui-slider-handle
+        border-radius: 50%
+        border-width 3px
+        border-color: $color-main
+        &.ui-state-hover
+            border-color: $color-main-hover
+        &.ui-state-active
+            background-color: $color-border
+            border-color: $color-main-hover
+
+    & .ui-slider-horizontal
+        height 4px
+        & .ui-slider-handle
+            pos-center-h()
+
+    & .ui-widget.ui-widget-content
+        border none
+        background-color: $color-border
+
+.filter
+    &__panel
+        &.open
+            & ^[0]__panel-content
+                display block
+            & ^[0]__label
+                arrow(right: 0, direction: 'up')
+
+        &.close
+            & ^[0]__panel-content
+                display none

@@ -1,0 +1,13 @@
+mixin breadcrumbs(data, mod)
+    -
+        var data = data || {}
+        var mod = mod || ''
+
+    ul.breadcrumbs(class=mod)
+
+        li.breadcrumbs__item
+            a(href='/').breadcrumbs__link Главная
+        if (data.items)
+            each item, i in data.items
+                li.breadcrumbs__item(class={active: (i == data.items.length-1)})
+                    a(href='#').breadcrumbs__link!= item

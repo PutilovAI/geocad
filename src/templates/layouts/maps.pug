@@ -1,0 +1,22 @@
+include ../partials/mixins
+doctype html
+html
+	include ../partials/head-maps
+	body
+		.wrapper.js-wrapper
+			.wrapper__page
+				.wrapper__page-top
+					include ../partials/header
+					+nav('close')
+					.wrapper__content
+						block content
+
+				.wrapper__page-bot
+					include ../partials/footer
+
+			.wrapper__popups
+				block popup
+
+		block script
+		script(src='./assets/js/libs.js')
+		script(src='./assets/js/main.js')

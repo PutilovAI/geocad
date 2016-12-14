@@ -1,0 +1,177 @@
+.button
+	padding 0 1.3em
+	line-height: 38px
+	background-color $color-main
+	cursor pointer
+	border 1px solid $color-main
+	display inline-block
+	vertical-align: middle
+	text-decoration none
+	color #fff
+	text-align center
+	transition all 0.2s linear
+	outline none
+	user-select none
+	font-size: 11px
+	text-transform uppercase
+	min-width: 140px
+	text-align: center
+
+	&:hover
+		color #fff
+		background-color $color-main-hover
+		border-color $color-main-hover
+	&_apply
+		background-color $color-second
+		border-color  $color-second
+		color $base-fc
+		&:hover
+			color $base-fc
+			background-color $color-second-hover
+			border-color  $color-second-hover
+	&_cancel
+		background-color #eaeaea
+		border-color #eaeaea
+		color $base-fc
+		&:hover
+			color $base-fc
+			background-color lighten(#eaeaea, 20%)
+			border-color  lighten(#eaeaea, 20%)
+
+	&_nobg
+		background: rgba(#fff, 0)
+		color: $base-fc
+		&:hover
+			color #fff
+			background-color $color-main-hover
+			border-color $color-main-hover
+
+	&_icon
+		position: relative
+		margin-left 40px
+		&:before
+			content ''
+			position: absolute
+			left -40px
+			top 0
+			height 40px
+			width 40px
+			background-color $color-main
+			border-right 1px solid #fc626a
+			transition all 0.2s linear
+		&:after
+			content ''
+			position: absolute
+			pos-center(left: -20px)
+
+
+	&_callback
+		background-color $color-second
+		color $base-fc
+		font-family: $opensanssemibold
+		height 50px
+		line-height: 50px
+		padding 0 20px
+		border none
+		margin-left 50px
+
+		&:before
+			left -50px
+			height 50px
+			width 50px
+			background-color $color-second
+			border-right-color #d9a51b
+
+		&:after
+			left: -25px
+			sprite($i_callback)
+
+		&:hover
+			color $base-fc
+			background-color $color-second-hover
+			border-color  $color-second-hover
+			&:before
+				background-color $color-second-hover
+
+	&_write
+		background-color rgba($color-main, 0)
+		border-color #fc626a
+		color #fff
+		padding 0 20px
+		min-width: 160px
+		&:before
+			background-color rgba($color-main, 0)
+			border 1px solid #fc626a
+			top -1px
+
+		&:after
+			sprite($i_pancil)
+
+		&:hover
+			background-color $color-main-hover
+			border-color  $color-main-hover
+			&:before
+				background-color $color-main-hover
+				border-color  $color-main-hover
+				border-right-color #fc626a
+
+
+
+
+	&_long
+		padding-left: 5em
+		padding-right 5em
+
+	&_link
+		padding 0 3.5em
+		background-color #222222
+		border-color transparent
+
+		&:hover
+			background-color lighten(#222, 15%)
+			border-color transparent
+
+.button-basket
+	background-color transparent
+	border-color $color-border
+	margin-left 60px
+	height 50px
+	line-height: 50px
+	color $base-fc
+	padding 0 20px
+	&:before
+		background-color rgba(#fff, 0)
+		border 1px solid $color-border
+		height 50px
+		width 60px
+		left -60px
+		top -1px
+	&:after
+		left -35px
+		sprite($i_basket)
+
+	&__count
+		line-height: 1
+		position: absolute;
+		pos-center(left: 0)
+		background-color: $color-main
+		padding 0.3em 0.4em
+		color #fff
+		font-size: 11px
+	&__price
+		font-size: 16px
+		font-family: $opensanssemibold
+		display: inline-block
+		margin-right: 5px
+	&__rubl
+		font-size: 14px
+		display: inline-block
+
+	&:hover
+		color $base-fc
+		background-color transparent
+		border-color  $color-main-hover
+		&:before
+			background-color tranasparent
+			border-color  $color-main-hover
+			border-right-color $color-border

@@ -7,5 +7,28 @@
         justify-content: space-between
         align-items: center
         min-height: 110px
+        margin 0 auto
+        max-width: 1260px
+        padding 0 30px
         width: 100%
         height: 0px // Для IE 11 иначе не воспринимает значение min-height
+    &__callback
+        display flex
+        align-items: baseline;
+    &__callback-phone
+        margin-right 50px
+    &__callback-link
+        color #2c383c
+        border-bottom: 1px dotted #2c383c
+        font-size: 13px
+        &:hover
+            color $color-main
+            border-bottom: 1px dotted $color-main
+
+@media screen and (max-width: 1260px)
+    .header
+        &__callback
+            flex-direction: column;
+        &__callback-phone
+            margin-right 0px
+            margin-bottom: 15px

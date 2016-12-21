@@ -1,0 +1,47 @@
+.slide
+    height 700px
+    width 100%
+    position: relative;
+    overflow: hidden;
+
+    &__img
+        position: absolute;
+        pos-center()
+
+    &__container
+        max-width: 1020px
+        padding 0 30px
+        margin 0 auto
+        margin-top: 165px
+
+    &__icon
+        width 140px
+        height @width
+        border-radius 50%
+        background-color $color-main
+        position: absolute;
+        top -20px
+        left -210px
+        flex-center()
+        &:before
+            content ''
+            imgSize('assets/slide-icon-lines.png')
+            border-radius 50%
+            background url(../images/slide-icon-lines.png) no-repeat center
+            position: absolute;
+
+
+    &__content
+        max-width: 420px
+        margin-left 420px
+        position: relative;
+
+    &__title
+        titleH1()
+        color #f2f2f2
+    &__desc
+        color #f2f2f2
+        line-height: $base-lh
+        margin-bottom: 40px
+    &__price
+        color $color-main

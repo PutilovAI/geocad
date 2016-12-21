@@ -1,9 +1,10 @@
 .button
-	padding 0 1.3em
-	line-height: 38px
+	padding 0 2.6em
+	line-height: 47px
+	height 50px
 	background-color $color-main
 	cursor pointer
-	border 1px solid $color-main
+	border 2px solid $color-main
 	display inline-block
 	vertical-align: middle
 	text-decoration none
@@ -12,10 +13,12 @@
 	transition all 0.2s linear
 	outline none
 	user-select none
-	font-size: 11px
+	font-size: 12px
+	font-family: $base-ff-semibold
 	text-transform uppercase
-	min-width: 140px
 	text-align: center
+	border-radius: 25px
+	white-space: nowrap;
 
 	&:hover
 		color #fff
@@ -40,81 +43,27 @@
 
 	&_nobg
 		background: rgba(#fff, 0)
-		color: $base-fc
+		color: #333
 		&:hover
 			color #fff
 			background-color $color-main-hover
 			border-color $color-main-hover
 
-	&_icon
+	&_arrow
 		position: relative
-		margin-left 40px
-		&:before
-			content ''
-			position: absolute
-			left -40px
-			top 0
-			height 40px
-			width 40px
-			background-color $color-main
-			border-right 1px solid #fc626a
-			transition all 0.2s linear
+		padding-right 60px
 		&:after
 			content ''
 			position: absolute
-			pos-center(left: -20px)
-
-
-	&_callback
-		background-color $color-second
-		color $base-fc
-		font-family: $opensanssemibold
-		height 50px
-		line-height: 50px
-		padding 0 20px
-		border none
-		margin-left 50px
-
-		&:before
-			left -50px
-			height 50px
-			width 50px
-			background-color $color-second
-			border-right-color #d9a51b
-
-		&:after
-			left: -25px
-			sprite($i_callback)
+			pos-center-h()
+			right 30px
+			width 14px
+			height 10px
+			background url(../images/button-arrow.png) no-repeat left top
 
 		&:hover
-			color $base-fc
-			background-color $color-second-hover
-			border-color  $color-second-hover
-			&:before
-				background-color $color-second-hover
-
-	&_write
-		background-color rgba($color-main, 0)
-		border-color #fc626a
-		color #fff
-		padding 0 20px
-		min-width: 160px
-		&:before
-			background-color rgba($color-main, 0)
-			border 1px solid #fc626a
-			top -1px
-
-		&:after
-			sprite($i_pancil)
-
-		&:hover
-			background-color $color-main-hover
-			border-color  $color-main-hover
-			&:before
-				background-color $color-main-hover
-				border-color  $color-main-hover
-				border-right-color #fc626a
-
+			&:after
+				background-position left bottom
 
 
 
@@ -122,14 +71,13 @@
 		padding-left: 5em
 		padding-right 5em
 
-	&_link
-		padding 0 3.5em
-		background-color #222222
-		border-color transparent
-
+	&_second
+		border-color #fff
+		color #fff
 		&:hover
-			background-color lighten(#222, 15%)
-			border-color transparent
+			color $color-main
+			background-color #fff
+			border-color #fff
 
 .button-basket
 	background-color transparent

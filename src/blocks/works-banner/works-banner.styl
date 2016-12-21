@@ -1,0 +1,38 @@
+
+.works-banner
+    $wrapH = 180px
+    width 100%
+    height: $wrapH
+    display: flex
+    align-items: stretch;
+    background url(../images/bg-works-complete.jpg) no-repeat center
+    background-size cover
+    display: flex;
+    align-items: center
+    &__col
+        position: relative;
+        &_left
+            width 60%
+            display: flex
+            justify-content: center;
+            padding-left: 76px;
+            padding-right: 30px;
+            padding-top 10px
+
+        &_right
+            width 40%
+            text-align: center;
+    &__count
+        color #fff
+        font-size: 72px
+        font-family: $title-ff-medium
+        margin-right: 40px
+    &__title
+        font-size: 24px
+        font-family: $title-ff-light
+        color #f2f2f2
+        margin-bottom: 10px
+        text-transform uppercase
+    &__desc
+        color $color-main
+        line-height: $base-lh

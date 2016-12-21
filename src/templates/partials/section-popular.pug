@@ -1,0 +1,35 @@
+section.section.section_popular
+    .container
+        .section__title-wrap.section__title-wrap_left
+            h2.section__title Популярные услуги
+            .section__title-desc
+                p.h-mb_0
+                    |Конкурентные цены #[br]на самые востребованные услуги. #[br]Никаких скрытых наценок!
+            .section__title-icon
+                .i-star
+
+        .popular-cards
+            -
+                var items = [
+                    {
+                        price: '4200',
+                        desc: 'За межевой план'
+                    },
+                    {
+                        price: '1000',
+                        desc: 'За точку<br>(вынос в натуру)',
+                        mark: true
+                    },
+                    {
+                        price: '25000',
+                        desc: 'Стоимость землеустроительной экспертизы'
+                    },
+                ]
+            each item, i in items
+                .popular-card(class={'popular-card_mark': item.mark})
+                    .popular-card__price
+                        |От#[br]#[span.popular-card__price-count #{item.price}] р.
+                    .popular-card__desc!= item.desc
+
+        .row.h-align_center
+            a(href="#").button Все цены на услуги

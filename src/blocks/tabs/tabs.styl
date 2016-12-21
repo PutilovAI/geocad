@@ -1,0 +1,37 @@
+transition()
+    transition: all 0.3s linear
+.tabs
+    position: relative
+
+    &__control
+        height 60px
+        background-color #2c383c
+        display flex
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px
+
+    &__control-item-text
+        border-bottom 1px solid $color-main
+        color #fff
+        cursor: pointer
+        transition()
+
+    &__control-item
+        margin-right: 50px
+        &:last-child
+            margin-right 0
+
+        &:hover
+            & ^[0]__control-item-text
+                color $color-main
+
+        &.active
+            & ^[0]__control-item-text
+                color $color-main
+                border-bottom-color: transparent
+
+    &__content-item
+        display: none
+        &.active
+            display: block

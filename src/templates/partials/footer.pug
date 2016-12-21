@@ -1,8 +1,25 @@
 footer.footer
     .container
         .footer__container
+            .footer__col.footer__col_info
+                .footer__logo
+                    +logo()
+                .footer__info
+                    |#[span.footer__copyright ©] 2007 — 2016,#[br]
+                    |Бюро межеваний «ГеоКад»#[br]
+                    |г. Екатеринбург, ул. Мичурина,#[br]
+                    |д. 108,#[br]
+                    |тел. +7 (343) 222-07-40
+                .footer__social
+                    +social()
+
             .footer__col
-                span.h-color_second
-                | «Led Store» &mdash; интернет-магазин
+                ul.footer__list
+                    each item, i in ["О компании", "Услуги", "Цены", "Полезная информация"]
+                        li.footer__list-item
+                            a(href="#").footer__list-item-link!= item
             .footer__col
-                |Разработка &mdash; #[a(href="#") Jazz]
+                ul.footer__list
+                    each item, i in ["Вопрос-ответ", "Контактная информация"]
+                        li.footer__list-item
+                            a(href="#").footer__list-item-link!= item

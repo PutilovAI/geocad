@@ -2,13 +2,7 @@
     &__map-wrap
         position: relative;
         height 600px
-    &__map-shadow
-        position: absolute
-        top 0
-        width 100%
-        background-image linear-gradient(to bottom, #eaeaea 0%, rgba(#eaeaea, 0.5) 30%, rgba(#eaeaea, 0.3) 50%, rgba(#eaeaea, 0) 100%)
-        height 100px
-        z-index: 1
+
     &__map
         width 100%
         max-width: 100%
@@ -21,38 +15,29 @@
         position: absolute;
         top 50%
         left 50%
-        width 300px
-        padding 60px
+        width 280px
+        padding 50px 50px 60px
         background-color: #fff
         transform: translate(-50%, -50%)
-        margin-left -452px
+        margin-left -342px
         z-index: 2
-        &:before
-            content ''
-            position: absolute;
-            top 0px
-            width 100%
-            max-width: 180px
-            height 3px
-            pos-center-w()
-            background-color $color-main
-            z-index: 2
-    &__info-title
-        font-size: 16px
-        margin-bottom: 20px
-    &__info-text
-        line-height: 1.5
-        margin-bottom: 20px
-    &__info-phone
-        font-size: 16px
-    &__info-phone-prefix
-        color $color-main
+        border-top 10px solid $color-main
 
-    &__block-desc
-        padding-top 50px
-        display flex
-        width: 100%
-        //justify-content: space-between;
-    &__block-desc-item
-        width (100/3)%
-        padding-right 50px
+    &__info-title
+        font-size: $fsH4
+        margin-bottom: 18px
+        font-family: $title-ff-light
+        color $base-fc-title
+        text-transform: uppercase;
+    &__info-text
+        font-size: 14px
+        line-height: 20px
+        margin-bottom: 35px
+    &__info-phone
+        margin-bottom: 10px
+    &__link-callback
+        font-size: 13px
+        color: #2c383c
+        border-bottom: 1px dotted #2c383c
+        &:hover
+            border-bottom-color: $color-main

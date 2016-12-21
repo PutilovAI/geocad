@@ -3,52 +3,177 @@
 
 
     &_popular
-        & .owl-item
-            border 1px solid $color-border
-            border-right none
-        & .owl-stage-outer
-            border-left 1px solid $color-border
-            border-bottom 1px solid $color-border
+        // & .owl-item
+        //     border 1px solid $color-border
+        //     border-right none
+        // & .owl-stage-outer
+        //     border-left 1px solid $color-border
+        //     border-bottom 1px solid $color-border
+        //
+        // & .owl-carousel .owl-item img
+        //     width auto
+        //     display: inline-block;
+        // & .owl-carousel .owl-stage
+        //     display: flex
 
-        & .owl-carousel .owl-item img
-            width auto
-            display: inline-block;
-        & .owl-carousel .owl-stage
-            display: flex
+
+
+    &__thumbs
+        position: absolute;
+        bottom 30px
+        width 100%
+        display: flex;
+        justify-content: center;
+
+    &__thumb-img-wrap
+        display block
+        border 1px solid rgba(#fff, 0.2)
+        width 100px
+        height 60px
+        overflow: hidden;
+        position: relative;
+        transition: all 0.3s ease
+        cursor: pointer;
+        &:after
+            content ''
+            position: absolute;
+            top 0
+            left 0
+            width 100%
+            height 100%
+            background-color: $color-main
+            opacity: 0
+            transition: all 0.3s ease
+
+    &__thumb-img
+        display block
+        max-width: 100%
+    &__thumb
+        margin-right: 10px
+        position: relative;
+
+        &:before
+            content ''
+            width 0
+            position: absolute;
+            bottom 0
+            left 0
+            background-color: $color-main
+            height 2px
+            transition all 0.3s ease
+
+        &:hover
+            & ^[0]__thumb-img-wrap
+                &:after
+                    opacity: 0.8
+
+        &:last-child
+            margin-right 0
+        &.active
+
+            & ^[0]__thumb-img-wrap
+                cursor: default;
+                top -10px
+            &:before
+                width 100%
+            &:hover
+                & ^[0]__thumb-img-wrap
+                    &:after
+                        opacity: 0
+
+
+
 
 
     &__control
-        position: absolute
-        width 40px
+        width 60px
         height @width
-        border 1px solid #c3c3c3
+        border 2px solid rgba(#000, 0.3)
+        border-radius 3px
+        position: absolute
         cursor: pointer
-        transition all 0.3s
+        transition background 0.3s ease, border 0.3s ease
         user-select none
-        margin-top: -20px;
+        margin-top: 20px;
         z-index: 2;
         background-color: #fff
+        &:after
+            content ''
+            pos-center()
+            position: absolute;
+            width 14px
+            height 10px
+            background url(../images/carousel-arrow.png) no-repeat left bottom
 
-        &_next
-            arrow(bg: $color-main, left: 18px)
         &_prev
-            arrow(bg: $color-main, left: 18px, direction:"left")
-        &:after, &:before
-            transition all 0.3s
+            transform rotate(180deg)
+
         &:hover
-            background-color: $color-main-hover
-            border-color: $color-main-hover
-            &:after, &:before
-                background-color:#fff
+            background-color: $color-main
+            border-color: $color-main
+            &:after
+                background-position left top
 
+    &_slider
+        // & .owl-carousel .owl-item img
+        //     -webkit-transform-style: flat
+        & ^[0]__counters
+            position: absolute;
+            left 50%
+            bottom 50%
+            margin-bottom 81px
+            margin-left: -481px
+            width 130px
+            padding-right 8px
+            text-align: center;
+            color #f2f2f2
+            font-family: $title-ff-light
+        & ^[0]__counter
+            font-size: $fsH1
+            display: inline-block;
+            text-transform uppercase
+        & ^[0]__counter-beth
+            font-size: 14px
+            color $color-main
+            margin 0 10px
+            display: inline-block;
+        & ^[0]__counter-total
+            font-size: $fsH3
+            display: inline-block;
 
-
-    &_popular
+        & ^[0]__controls
+            position: absolute;
+            left 50%
+            bottom 50%
+            margin-left: -481px
         & ^[0]__control
             position: relative;
-            left calc(50% - 40px)
             float: left
+            border-color #fff
+            background-color: transparent
+            &:after
+                background-position: right bottom
+
+            &_prev
+                transform rotate(180deg)
+
+            &:hover
+                background-color: $color-main
+                border-color: $color-main
+                &:after
+                    background-position right bottom
             &_prev
                 margin-left 0
             &_next
-                margin-left -1px
+                margin-left 10px
+    &_recall
+        & .owl-carousel .owl-item img
+            -webkit-transform-style: flat
+        & ^[0]__control
+            position: relative;
+            left calc(50% - 60px)
+            float: left
+            &_prev
+                margin-left -5px
+            &_next
+                margin-left 10px

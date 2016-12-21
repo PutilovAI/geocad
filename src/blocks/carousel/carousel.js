@@ -2,10 +2,10 @@
 $(document).ready(function(){
     var $next = $('.js-carousel__control-next');
     var $prev = $('.js-carousel__control-prev');
-    var $owlPopular = $('.js-carousel-popular');
+    var $owlRecall = $('.js-carousel-recall');
 
-    $owlPopular.owlCarousel({
-        items: 4,
+    $owlRecall.owlCarousel({
+        items: 1,
         margin: 0,
         loop: true,
         autoHeight:true

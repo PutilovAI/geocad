@@ -1,0 +1,48 @@
+mixin service-card(dataExternal, amount, mod)
+    -
+        var mod = mod || ''
+        if (dataExternal.more) mod+= ' service-card_more'
+
+        var amount = amount || 1
+        var titles = [
+            'Технические планы','Геодезия', 'Вынос в натуру (межевые знаки)', 'Проект межевания (планировки)','Земле-устроительная экспертиза'
+        ]
+        var descs = [
+            'Обследование объекта недвижимости с целью измерения его характеристик по площади. По результатам работ выдается технический паспорт объекта.','Без геодезических исследований просто невозможно определить реальные границы строений, которые будут располагаться на участке. ','В принципе любому, кто собирается освоить какой – либо земельный участок необходимо прежде обратиться к геодезисту. ','Геофизические и геологические изыскания особенно важны перед проведением строительных работ, ведь от расчетов, сделанных на основе таких изысканий, зависят надежность и безопасность строения.','Топографическая съемка земельного участка (топосъемка участка) интересует многих людей, планирующих строительство в Москве и Московской области.'
+        ]
+        var lists = [
+            ['Жилой фонд','Промышленные объекты'],
+            ['Топоплан м-ба 1:500', 'Инженерные изыскания', 'Исполнительные съемки'],
+            [],[],[]
+        ]
+
+        function randomDigit(min,max){
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+
+    - var n = 1
+    while (n <= amount)
+        -
+            var random = randomDigit(0,4)
+
+            var data = dataExternal || {
+                    title : titles[randomDigit(0,4)],
+                    desc  : descs[randomDigit(0,4)],
+                    list  : lists[randomDigit(0,4)],
+                }
+
+
+        .service-card(class=mod)
+            .service-card__content
+                .service-card__title!= data.title
+                if (data.desc)
+                    .service-card__desc!= data.desc
+                if (data.list && data.list.length)
+                    ul.list.list_small.service-card__list
+                        each item, i in data.list
+                            li.service-card__list-item
+                                a.service-card__link(href="#")!= item
+            if (dataExternal.more)
+                a(href='#').service-card__button-more
+        - n++

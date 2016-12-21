@@ -1,0 +1,27 @@
+.carousel.carousel_slider
+    .carousel__owl.js-carousel-slider.js-carousel
+        .slide
+            img.slide__img(src="./assets/images/slider-1.jpg")
+            .slide__container
+                .slide__content
+                    .slide__icon
+                        .i-compas
+                    .slide__title
+                        | Межевание за #[span.slide__price 4200] р. с&nbsp;оплатой по факту!
+                    .slide__desc Утром - стулья, вечером - деньги. Платите только за выполненную работу! Удивительно низкая цена на услуги профессионалов.
+                    .slide__button
+                        a(href="#").button Унать больше
+    .carousel__thumbs
+        each item, i in [1,2,3,4,5]
+            .carousel__thumb(class={active:item == 2})
+                .carousel__thumb-img-wrap
+                    img.carousel__thumb-img(src='./assets/images/slider-min-'+item+'.jpg')
+
+    .carousel__counters
+        span.carousel__counter 1
+        span.carousel__counter-beth ИЗ
+        span.carousel__counter-total 5
+
+    .carousel__controls
+        .carousel__control.carousel__control_prev.js-carousel__control-prev
+        .carousel__control.carousel__control_next.js-carousel__control-next

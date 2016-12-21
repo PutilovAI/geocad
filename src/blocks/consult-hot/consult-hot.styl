@@ -1,0 +1,68 @@
+
+.consult-hot
+    $wrapH = 270px
+    width 100%
+    display: flex
+    align-items: stretch;
+    &__col
+        width 50%
+        position: relative;
+        height $wrapH
+        &_left
+            $bgColorLeftCol = #2c383c
+            background-color $bgColorLeftCol
+            background-image url(../images/bg-hotline_circle.png)
+            background-position: left top
+            background-repeat: no-repeat;
+            padding-top: 60px
+            padding-bottom: 60px
+            padding-left: 170px
+            z-index: 2
+            &:after
+                content ''
+                position: absolute;
+                left 100%
+                top 0
+                border-left 45px solid $bgColorLeftCol
+                border-top ($wrapH/2) solid transparent
+                border-bottom ($wrapH/2) solid transparent
+        &_right
+            background-image url(../images/bg-hotline_man.png)
+            background-position right top
+            background-color #dee4e4
+            z-index: 1
+            display: flex
+            align-items: center;
+            padding-left: 95px
+    &__col-container
+        text-align: center;
+    &__phone
+        titleH2()
+        color #333
+    &__phone-index
+        color $color-main
+
+    &__title
+        titleH2()
+        color #fff
+    &__desc
+        color #fff
+        line-height: $base-lh
+
+    &__icon-wrap
+        position: absolute;
+        left 60px
+        top 60px
+        width 60px
+        height @width
+        flex-center()
+        border 2px solid $color-main
+        border-radius: 3px
+        &:before
+            content ''
+            position: absolute;
+            bottom 100%
+            pos-center-w()
+            width 2px
+            background-color $color-main
+            height 62px

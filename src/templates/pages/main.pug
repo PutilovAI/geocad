@@ -2,34 +2,72 @@ extend ../layouts/main
 
 block content
 
-	section.section.section_first.h-pb_20
-		.container
-			.intro
-				img.intro__img(src="./assets/images/bg-main.png")
-				.intro__content
-					.intro__minititle Новая коллекция
-					.intro__title Luce
-					a.intro__button(href="#").button.button_link Подробнее
+    section.section.section_first.h-pb_40
+        include ../partials/carousel-slider
+        .container
+            .section__title-wrap.section__title-wrap_hotline
+                .section__title-icon
+                    .i-phone
+                .section__title-wrap-content
+                    .section__title-wrap-col.section__title-wrap-col_left
+                        h2.section__title Горячая линия
+                        .section__title-desc
+                            p.h-mb_0
+                                | Бесплатная консультация#[br] специалиста, ответы на#[br]любые вопросы
+                    .section__title-wrap-col.section__title-wrap-col_right
+                        .hotline
+                            .hotline__desc Позвоните нам
+                            .hotline__phone
+                                | #[span.hotline__phone-prefix (343)] 222-07-40
+                            .hotline__desc или напишите
+                            .hotline__button
+                                a(href="#").button Задать вопрос специалисту
 
-			.row
-				.section__sidebar
-					+shop({
-					title: 'Цена дня',
-					sale: '-30%',
-					img: './assets/images/item-price-day.png',
-					type: 'Светильник',
-					name: 'Tommaso Caldera 60W',
-					price: '5 000',
-					priceOld: '8 000'
-					}, 1, 'shop_hot')
 
-				.section__content.section__content_catalog
-					include ../partials/skill
-					.section__title-wrap.section__title-wrap_semi
-						div.section__title Популярные товары
+            include ../partials/works-banner
+    section.section.section_earch.h-pb_0
+        .container.h-pos_rel
+            .section__big-digit
+                .big-digit
+                    .big-digit__count.big-digit__count_ten
+                    .big-digit__desc лет опыта
+            .section__title-wrap.section__title-wrap_right
+                .section__title-icon
+                    .i-earch
+                .section__title
+                    |Мы знаем о земле#[br]все!
+                .section__title-desc С 2006 года трудимся в области землеустроительных работ, инженерно-геодезических изысканий для строительства и оформления участков в кадастре.
+            .row.h-align_center.h-mt_60.h-mb_40
+                a(href="#").button.button_nobg.button_second О компании
 
-					include ../partials/carousel
+    section.section.h-pb_0.h-pt_0
+        .container
+            .section__title-wrap.section__title-wrap_center
+                .section__title Что мы делаем?
+                .section__title-desc
+                p Мы предлагаем комплексный подход к решению задач и обспечим выполнение полного комплекса работ, от решения змельных вопросов и эксплуатации готовых объектов до оценки таких объектов, применение картографии и ГИС в сельском хозяйстве и многое другое.
+                .section__title-icon
+                    .i-bag
 
-	include ../partials/section-intresting
+        .service.h-pb_40.h-mt_60
+            .container
+                include ../partials/service-big-card
+                .service-cards
+                    +service-card('', 5)
+                    +service-card({title: 'Больше<br>полезных<br>услуг', more: true}, 1)
+
+    include ../partials/section-popular
+
+
+    section.section.h-pt_0
+        .container
+            .section__title-wrap.section__title-wrap_left.section__title-wrap_semi
+                h2.section__title Что говорят<br>о нас клиенты?
+                .section__title-icon
+                    .i-dialog
+
+            include ../partials/carousel-recall
+
+    include ../partials/section-consult
 
 block popup

@@ -8,8 +8,6 @@ $(document).ready(function(){
         { autoclear: false },
         { placeholder:"+7 (___) ___-__-__" });
 
-    $('.js-select').selectmenu();
-
 
     //Просто попап для форм и любого контента
     $('.js-popup-open').magnificPopup({

@@ -7,10 +7,12 @@
         padding-left: 40px
         list-style: none
         position: relative
+        &:last-child
+            margin-bottom 0
 
         &:before
             content ''
-            width 7px
+            width 10px
             height @width
             background-color: $color-main
             position: absolute
@@ -31,3 +33,15 @@
                 color $color-main
                 font-family: $base-ff-bold
                 background-color: transparent
+
+.list
+    &_small
+        & li, & ^[0]__item
+            margin-bottom 6px
+            font-size: 14px
+            padding-left: 20px
+
+            &:before
+                width 6px
+                height @width
+                top 11px

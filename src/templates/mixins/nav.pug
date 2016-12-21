@@ -1,9 +1,9 @@
-mixin nav(open)
+mixin nav(data)
+    -
+        var data = data || {}
+
     nav.nav
-        .container
-            .nav__items
-                each item in ['Доставка и оплата', 'Гарантия и возврат', 'Контакты']
-                    .nav__item
-                        a(href="#").nav__item-link= item
-            .nav__button
-                a.button.button_icon.button_write Напишите нам
+        .nav__items
+            each item, i in ['О компании', 'услуги', 'цены', 'полезная информация', 'вопрос ответ', 'Контакты']
+                .nav__item(class={active: i == 3})
+                    a(href="#").nav__item-link= item

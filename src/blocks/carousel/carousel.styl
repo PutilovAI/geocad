@@ -1,29 +1,13 @@
 .carousel
     position: relative
 
-
-    &_popular
-        // & .owl-item
-        //     border 1px solid $color-border
-        //     border-right none
-        // & .owl-stage-outer
-        //     border-left 1px solid $color-border
-        //     border-bottom 1px solid $color-border
-        //
-        // & .owl-carousel .owl-item img
-        //     width auto
-        //     display: inline-block;
-        // & .owl-carousel .owl-stage
-        //     display: flex
-
-
-
     &__thumbs
         position: absolute;
         bottom 30px
         width 100%
         display: flex;
         justify-content: center;
+        z-index: 2
 
     &__thumb-img-wrap
         display block
@@ -32,8 +16,9 @@
         height 60px
         overflow: hidden;
         position: relative;
-        transition: all 0.3s ease
+        transition: all 0.5s ease
         cursor: pointer;
+        top 0
         &:after
             content ''
             position: absolute;
@@ -60,7 +45,7 @@
             left 0
             background-color: $color-main
             height 2px
-            transition all 0.3s ease
+            transition all 0.5s ease
 
         &:hover
             & ^[0]__thumb-img-wrap
@@ -115,8 +100,10 @@
                 background-position left top
 
     &_slider
-        // & .owl-carousel .owl-item img
-        //     -webkit-transform-style: flat
+        & .owl-carousel .owl-item img
+            -webkit-transform-style: auto
+            width: auto
+
         & ^[0]__counters
             position: absolute;
             left 50%
@@ -128,6 +115,7 @@
             text-align: center;
             color #f2f2f2
             font-family: $title-ff-light
+            z-index: 2
         & ^[0]__counter
             font-size: $fsH1
             display: inline-block;

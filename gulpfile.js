@@ -70,16 +70,21 @@ gulp.task('html', function() {
 })
 
 gulp.task('style', ['sprite'], function() {
-	return gulp.src('./src/assets/style/main.styl')
-        .pipe(plumber())
+    var libs = gulp.src(conf.path.css.vendor)
+        .pipe( concat('libs.css') )
+        .pipe( gulp.dest(conf.path.css.dest) )
+
+    var main = gulp.src(conf.path.css.src)
 		.pipe(stylus({
             'include css': true
         }))
 		.pipe(autoprefixer(
 			['last 15 versions'], { cascade: true })
 		)
-		.pipe( gulp.dest('./dist/assets/css') )
+		.pipe( gulp.dest(conf.path.css.dest) )
 		.pipe( browserSync.reload({stream: true}) ) ;
+
+    return merge(libs, main);
 })
 
 gulp.task('js', function() {
@@ -89,13 +94,16 @@ gulp.task('js', function() {
         .pipe( uglifyjs() )
         .pipe( gulp.dest(conf.path.js.dest) )
 
+    var jquery = gulp.src(conf.path.js.jquery)
+        .pipe( gulp.dest(conf.path.js.dest) )
+
     var main = gulp.src(conf.path.js.src)
         .pipe(plumber())
         .pipe( concat('main.js') )
         .pipe( gulp.dest(conf.path.js.dest) )
         .pipe( browserSync.reload({stream: true}) )
 
-  return merge(libs, main);
+  return merge(libs, main, jquery);
 });
 
 

@@ -42,17 +42,116 @@ h4
     line-height: 1.6
     font-weight normal
 
-li
-
-    /*&:before
-        content ''
-        position absolute
-        width 5px
-        height 5px
-        background-color $color-second
-        top 9px
-        left 0
-        border-radius 50%*/
 
 b, strong
     font-family $base-ff-bold
+
+input, button
+    -webkit-appearance: none
+    border-radius: 0px
+
+
+//Content
+.container-content
+    li
+        margin-bottom 15px
+        font-size: $base-fs
+        line-height: $base-lh
+        padding-left: 40px
+        list-style: none
+        position: relative
+    ul
+        list-style: none
+        & li
+            &:last-child
+                margin-bottom 0
+            &:before
+                content ''
+                width 10px
+                height @width
+                background-color: $color-main
+                position: absolute
+                left 0
+                top 11px
+    ol
+        counter-reset: myCounter2
+        list-style: none
+        & li
+            &:last-child
+                margin-bottom 0
+            &:before
+                counter-increment: myCounter;
+                content:counter(myCounter) '.';
+                width auto
+                height auto
+                border none
+                position: absolute
+                left 0
+                top 1px
+                color $color-main
+                font-family: $base-ff-bold
+                background-color: transparent
+
+    sup
+        vertical-align: super
+        font-size: smaller
+
+    em, i
+        font-family: $base-ff-italic
+
+
+    blockquote
+        margin 40px 0
+        padding 30px
+        position: relative
+        border-top 1px solid #cdcdcd
+        border-bottom 1px solid #cdcdcd
+        font-family: $base-ff-italic
+        text-align: center
+        line-height: $base-lh
+        &:after, &:before
+            content ''
+            pos-center-w()
+            width 40px
+            height 4px
+            background-color $color-main
+
+        &:after
+            bottom -2px
+        &:before
+            top -2px
+        *
+            &:last-child
+                margin-bottom 0
+
+    table
+        $color-border = #e5e5e5
+        width 100%
+        table-layout: fixed
+        border-radius: 0
+        overflow: hidden
+        border-collapse: separate
+        & th, & td
+            padding 15px 15px 15px 20px
+            line-height: 1.5
+            &:last-child
+                border-right none
+
+        & th
+            font-weight: normal
+            color #333
+            border-bottom 3px solid $color-main
+            border-right 1px solid $color-border
+            text-align: left
+
+        & td
+            color #666
+            border-bottom 1px solid $color-border
+            border-right 1px solid $color-border
+
+        & tbody tr
+            &:nth-child(even)
+                background #f4f4f4
+            &:last-child
+                td
+                    border-bottom none

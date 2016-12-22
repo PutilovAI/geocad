@@ -1,27 +1,51 @@
-.carousel.carousel_slider
-    .carousel__owl.js-carousel-slider.js-carousel
-        .slide
-            img.slide__img(src="./assets/images/slider-1.jpg")
-            .slide__container
-                .slide__content
-                    .slide__icon
-                        .i-compas
-                    .slide__title
-                        | Межевание за #[span.slide__price 4200] р. с&nbsp;оплатой по факту!
-                    .slide__desc Утром - стулья, вечером - деньги. Платите только за выполненную работу! Удивительно низкая цена на услуги профессионалов.
-                    .slide__button
-                        a(href="#").button Унать больше
-    .carousel__thumbs
-        each item, i in [1,2,3,4,5]
-            .carousel__thumb(class={active:item == 2})
+-
+    var sliders = [
+        {
+            title: 'Межевание за <span class="slide__price">4200</span> р. с&nbsp;оплатой по факту!',
+            desc : 'Оформление документов на землю. Результат - кадастровый паспорт на участок!'
+        },
+        {
+            title: 'Вынос границ в<br> натуру. Всего <span class="slide__price">900</span> &nbsp;р.<br>за&nbsp;точку!',
+            desc : 'Закрепление границ земельных участков в натуре межевыми знаками. Все материалы наши, от Вас только присутствие.'
+        },
+        {
+            title: 'Инженерные изыскания',
+            desc : 'Комплексные инженерные изыскания для рабочего проектирования. В кратчайшие сроки и с грамотными отчетами!'
+        },
+        {
+            title: 'Оформление документов на&nbsp;здания и сооружения.',
+            desc : 'Результат &mdash; кадастровый паспорт на объект недвижимости'
+        },
+        {
+            title: 'Землеустроительная экспертиза',
+            desc : 'Предварительная подробная консультация с экспертом. Внушительный опыт работы с судами по всей Свердловской области.'
+        }
+    ]
+.carousel.carousel_slider.js-carousel-wrap
+    .carousel__owl.js-carousel-slider.owl-carousel.js-carousel
+        each item, i in sliders
+            .slide.js-carousel-item
+                .slide__img-wrap
+                    img.slide__img(src="./assets/images/slider-"+ (i+1) +".jpg")
+                .slide__container
+                    .slide__content
+                        .slide__icon
+                            .i-compas
+                        .slide__title!= item.title
+                        .slide__desc!= item.desc
+                        .slide__button
+                            a(href="#").button Унать больше
+    .carousel__thumbs.js-carousel-thumbs-wrap
+        each item, i in sliders
+            .carousel__thumb.js-carousel-thumb
                 .carousel__thumb-img-wrap
-                    img.carousel__thumb-img(src='./assets/images/slider-min-'+item+'.jpg')
+                    img.carousel__thumb-img(src='./assets/images/slider-min-'+ (i+1) +'.jpg')
 
     .carousel__counters
-        span.carousel__counter 1
+        span.carousel__counter.js-carousel-counter
         span.carousel__counter-beth ИЗ
-        span.carousel__counter-total 5
+        span.carousel__counter-total.js-carousel-counter-total
 
     .carousel__controls
-        .carousel__control.carousel__control_prev.js-carousel__control-prev
-        .carousel__control.carousel__control_next.js-carousel__control-next
+        .carousel__control.carousel__control_prev.js-carousel__control.js-carousel__control-prev
+        .carousel__control.carousel__control_next.js-carousel__control.js-carousel__control-next

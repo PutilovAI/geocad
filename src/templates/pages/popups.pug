@@ -1,4 +1,4 @@
-extend ../layouts/nocatalog
+extend ../layouts/main
 
 block content
 
@@ -7,24 +7,12 @@ block content
 			-
 				var popups = [
 					{
-						name : 'Напишите нам',
+						name : 'Вопрос специалисту',
 						id : 'popup-send-message'
 					},
 					{
-						name : 'Спасибо',
+						name : 'Заявка принята',
 						id : 'popup-message-succes'
-					},
-					{
-						name : 'Заказать обратный звонок',
-						id : 'popup-callback'
-					},
-					{
-						name : 'Купить в один клик',
-						id : 'popup-one-click'
-					},
-					{
-						name : 'Добавить в корзину',
-						id : 'popup-basket'
 					}
 				]
 			ul.list
@@ -35,6 +23,3 @@ block content
 block popup
 	include ../partials/popup-form-send-message
 	include ../partials/popup-message-succes
-	include ../partials/popup-form-callback
-	include ../partials/popup-one-click
-	include ../partials/popup-basket

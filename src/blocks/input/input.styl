@@ -3,7 +3,7 @@
     &__text,
     &__textarea
         font-size: $base-fs
-        padding 0.8em 1em
+        padding 0.65em 1em
         background-color $input-bg
         border 1px solid $input-border
         outline none
@@ -11,6 +11,7 @@
         color $input-color
         transition all 0.2s linear
         width: 100%
+        border-radius 2px
 
         +placeholder()
             color lighten($color-grey, 20%)
@@ -29,6 +30,14 @@
         font-size: $base-fs
         margin-bottom 8px
         display: block;
+        &_required
+            &:after
+                content '*'
+                display inline-block
+                color $color-red
+                position: relative
+                margin-left 3px
+                top -2px
 
 
     &__checkbox
@@ -79,31 +88,14 @@
                 background-color: $color-main
 
 
-
     &__error
         display: block
-        visibility: hidden;
         position: absolute
-        bottom 1px
-        left 100%
-        color: #fff
-        background-color: $input-error
-        padding 0.8em 1em
-        border 1px solid $input-error
-        white-space: nowrap;
-        margin-left 10px
-        opacity: 0
-        transform translateX(-100px)
+        bottom -30px
+        color: $input-error
         transition all 0.4s ease-in-out
-        &:before
-            content ''
-            position: absolute
-            width 8px
-            height @width
-            background-color: $input-error
-            top 50%
-            left 0
-            transform translate(-66%, -50%) rotate(45deg)
+        max-height: 0
+        opacity: 0
 
         &_rel
             bottom 0
@@ -134,6 +126,5 @@
                 background-color: #ffd3d5
 
         & ^[0]__error
-            visibility: visible;
+            max-height: 100px
             opacity: 1
-            transform translateX(0)

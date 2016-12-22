@@ -9,6 +9,7 @@ mixin input(data, mod, attr)
         var inputTag = data.tag || "input"
         var error = data.error || 'Заполните поле'
         var id = data.id || ''
+        var isRequired = data.required || false
 
         if (data.required){
             mod = mod + ' js-valid-form__item'
@@ -24,7 +25,7 @@ mixin input(data, mod, attr)
             inputTag = 'textarea'
         }
     .input(class=mod)
-        label.input__label(for=id)!= data.label
+        label.input__label(for=id class={'input__label_required': isRequired})!= data.label
         #{inputTag}(type=type, class=modInput, id=id, placeholder=placeholder)
         if (data.required)
-            .input__error.js-valid-form__error!= error
+            .input__error.input__error_rel.js-valid-form__error!= error

@@ -5,6 +5,7 @@ const conf = {
   path : {
     js : {
       src : ['./src/blocks/**/*.js', './src/assets/js/*.js'],
+      jquery: './src/assets/libs/jquery/dist/jquery.min.js',
       vendor: [
         './src/assets/libs/jquery/dist/jquery.min.js',
         './src/assets/libs/owl.carousel/dist/owl.carousel.min.js',
@@ -12,6 +13,11 @@ const conf = {
         './src/assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js'
       ],
       dest: "./dist/assets/js"
+    },
+    css : {
+        src : ['./src/assets/style/main.styl', './src/assets/style/reset.styl'],
+        vendor : ['./src/assets/libs/select2/select2.css'],
+        dest : dist + '/assets/css'
     },
     img : {
         src : [
@@ -25,7 +31,7 @@ const conf = {
     src: src
   },
   name: {
-    zip: 'ledstore.zip'
+    zip: 'geocad.zip'
   }
 }
 

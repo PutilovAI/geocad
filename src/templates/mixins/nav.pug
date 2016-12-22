@@ -1,9 +1,0 @@
-mixin nav(data)
-    -
-        var data = data || {}
-
-    nav.nav
-        .nav__items
-            each item, i in ['О компании', 'услуги', 'цены', 'полезная информация', 'вопрос ответ', 'Контакты']
-                .nav__item(class={active: i == 3})
-                    a(href="#").nav__item-link= item

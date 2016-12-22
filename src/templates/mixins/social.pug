@@ -1,9 +1,0 @@
-mixin social(data)
-    -
-        var data = data || {},
-            items = data.items || ['fb', 'tw', 'google'];
-
-    .social
-        each item, i in items
-            a.social__item(href="#" class="social__item_"+item)
-                .social__item-icon(class="i-soc_"+item)
